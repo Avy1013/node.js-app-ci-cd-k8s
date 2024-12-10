@@ -32,3 +32,19 @@ jobs:
       # Step 4: Push Docker image to ACR
       - name: Push Docker image
         run: docker push avy1013.azurecr.io/my-nodejs-app:latest
+      
+      # Step 5: Get creds
+      - name: Get AKS credentials
+        run: az aks get-credentials --resource-group assesment --name az-devops --overwrite-existing
+      
+      # Step 6: deploying 
+      - name: deploye yaml
+        run: |
+            kubectl apply -f deployment.yaml
+            kubectl apply -f service.yaml
+
+      # Step 7: verify     
+      - name: Verify Deployment
+        run: |
+            kubectl get pods
+            kubectl get service manhwa-app-service  
