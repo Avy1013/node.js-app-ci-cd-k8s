@@ -49,3 +49,14 @@ jobs:
         run: |
             kubectl get pods
             kubectl get service manhwa-app-service  
+      # Step 8: Send Success Email Notification
+      - name: Send Success Email
+        if: success()
+        run: |
+          echo -e "Subject: Deployment Successful\n\nDeployment to AKS was successful." | sendmail -S smtp.gmail.com:587 -f ${{ secrets.SMTP_USER }} -t ${{ secrets.TO_EMAIL }} -u ${{ secrets.SMTP_PASS }}
+
+      # Step 9: Send Failure Email Notification
+      - name: Send Failure Email
+        if: failure()
+        run: |
+          echo -e "Subject: Deployment Failed\n\nDeployment to AKS failed." | sendmail -S smtp.gmail.com:587 -f ${{ secrets.SMTP_USER }} -t ${{ secrets.TO_EMAIL }} -u ${{ secrets.SMTP_PASS }}
