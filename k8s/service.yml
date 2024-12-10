@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: manhwa-app-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: manhwa-app
+  ports:
+  - protocol: TCP
+    port: 80    # Public port
+    targetPort: 3000 # Port the app listens on

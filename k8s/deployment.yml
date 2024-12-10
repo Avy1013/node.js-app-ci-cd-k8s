@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: manhwa-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: manhwa-app
+  template:
+    metadata:
+      labels:
+        app: manhwa-app
+    spec:
+      containers:
+      - name: manhwa-app
+        image: avy1013.azurecr.io/my-nodejs-app:latest
+        ports:
+        - containerPort: 3000
+        env:
+        - name: NODE_ENV
+          value: "production"
