@@ -41,8 +41,8 @@ jobs:
       # Step 6: deploying 
       - name: deploye yaml
         run: |
-            kubectl apply -f k8s/deployment.yaml
-            kubectl apply -f k8s/service.yaml
+            kubectl apply -f k8s/deployment.yml
+            kubectl apply -f k8s/service.yml
 
       # Step 7: verify     
       - name: Verify Deployment
