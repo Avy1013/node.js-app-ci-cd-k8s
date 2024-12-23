@@ -1,5 +1,5 @@
 # Cloud web-app deployment
-![Final Website](./images/final-website.png)
+![Final Website](./images/final-website1.png)
 The application should:
 
 	•	Display a list of manhwa titles, their genres, and brief descriptions using mock data (e.g., a JSON file).
@@ -11,7 +11,7 @@ The application should:
 	•	Implement security measures by:
 	•	Enabling HTTPS for the application using a cloud service (e.g., AWS Certificate Manager or Azure SSL).
 	•	Configuring basic firewall rules to restrict access to necessary ports.
-![Final Website](./images/architecture.png)
+![Final Website](./images/architecture1.png)
 ### Process
 ## Node.js CI/CD Pipeline
 
